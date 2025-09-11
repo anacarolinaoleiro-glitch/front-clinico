@@ -91,11 +91,11 @@ export function Dashboard() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
-          <p className="text-muted-foreground">Bem-vindo de volta, Dr. Roberto Silva</p>
+          <h1 className="text-3xl font-bold text-slate-900">Dashboard</h1>
+          <p className="text-slate-600">Bem-vindo de volta, Dr. Roberto Silva</p>
         </div>
         <div className="flex space-x-2">
-          <Button>
+          <Button className="bg-blue-600 hover:bg-blue-700 text-white">
             <Plus className="w-4 h-4 mr-2" />
             Nova Consulta
           </Button>
@@ -105,15 +105,15 @@ export function Dashboard() {
       {/* Stats Grid */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat) => (
-          <Card key={stat.title}>
+          <Card key={stat.title} className="bg-white border border-slate-200">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">{stat.title}</CardTitle>
-              <stat.icon className={`w-5 h-5 ${stat.color}`} />
+              <CardTitle className="text-sm font-medium text-slate-600">{stat.title}</CardTitle>
+              <stat.icon className="w-5 h-5 text-blue-600" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">{stat.value}</div>
-              <p className="text-xs text-muted-foreground">
-                <span className="text-chart-3">{stat.change}</span> em relação ao mês anterior
+              <div className="text-2xl font-bold text-slate-900">{stat.value}</div>
+              <p className="text-xs text-slate-600">
+                <span className="text-green-600">{stat.change}</span> em relação ao mês anterior
               </p>
             </CardContent>
           </Card>
@@ -122,29 +122,29 @@ export function Dashboard() {
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {/* Recent Appointments */}
-        <Card className="lg:col-span-2">
+        <Card className="lg:col-span-2 bg-white border border-slate-200">
           <CardHeader>
-            <CardTitle className="flex items-center">
-              <Calendar className="w-5 h-5 mr-2 text-primary" />
+            <CardTitle className="flex items-center text-slate-900">
+              <Calendar className="w-5 h-5 mr-2 text-blue-600" />
               Próximas Consultas
             </CardTitle>
-            <CardDescription>Agendamentos para hoje</CardDescription>
+            <CardDescription className="text-slate-600">Agendamentos para hoje</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               {recentAppointments.map((appointment) => (
-                <div key={appointment.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
+                <div key={appointment.id} className="flex items-center justify-between p-3 rounded-lg bg-slate-50">
                   <div className="flex items-center space-x-3">
-                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10">
-                      <Clock className="w-5 h-5 text-primary" />
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-100">
+                      <Clock className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">{appointment.patient}</p>
-                      <p className="text-sm text-muted-foreground">{appointment.type}</p>
+                      <p className="font-medium text-slate-900">{appointment.patient}</p>
+                      <p className="text-sm text-slate-600">{appointment.type}</p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="font-medium text-foreground">{appointment.time}</p>
+                    <p className="font-medium text-slate-900">{appointment.time}</p>
                     <Badge
                       variant={
                         appointment.status === "confirmado"
@@ -165,19 +165,19 @@ export function Dashboard() {
         </Card>
 
         {/* Alerts */}
-        <Card>
+        <Card className="bg-white border border-slate-200">
           <CardHeader>
-            <CardTitle className="flex items-center">
-              <AlertCircle className="w-5 h-5 mr-2 text-secondary" />
+            <CardTitle className="flex items-center text-slate-900">
+              <AlertCircle className="w-5 h-5 mr-2 text-amber-600" />
               Alertas
             </CardTitle>
-            <CardDescription>Notificações importantes</CardDescription>
+            <CardDescription className="text-slate-600">Notificações importantes</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
               {alerts.map((alert) => (
-                <div key={alert.id} className="p-3 rounded-lg bg-muted/50 border-l-4 border-l-secondary">
-                  <p className="text-sm text-foreground">{alert.message}</p>
+                <div key={alert.id} className="p-3 rounded-lg bg-slate-50 border-l-4 border-l-amber-500">
+                  <p className="text-sm text-slate-900">{alert.message}</p>
                 </div>
               ))}
             </div>
