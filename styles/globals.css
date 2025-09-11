@@ -84,7 +84,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    /* removendo @apply border-border que causa erro */
   }
   body {
     @apply bg-background text-foreground;
