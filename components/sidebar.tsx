@@ -23,25 +23,25 @@ export function Sidebar() {
   return (
     <div
       className={cn(
-        "flex flex-col bg-sidebar border-r border-sidebar-border transition-all duration-300",
+        "flex flex-col bg-slate-50 border-r border-slate-200 transition-all duration-300",
         collapsed ? "w-16" : "w-64",
       )}
     >
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-sidebar-border">
+      <div className="flex items-center justify-between p-4 border-b border-slate-200">
         {!collapsed && (
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <Activity className="w-5 h-5 text-primary-foreground" />
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <Activity className="w-5 h-5 text-white" />
             </div>
-            <span className="font-semibold text-sidebar-foreground">SisClínico</span>
+            <span className="font-semibold text-slate-900">SisClínico</span>
           </div>
         )}
         <Button
           variant="ghost"
           size="sm"
           onClick={() => setCollapsed(!collapsed)}
-          className="text-sidebar-foreground hover:bg-sidebar-accent"
+          className="text-slate-600 hover:bg-slate-100"
         >
           {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
         </Button>
@@ -58,9 +58,7 @@ export function Sidebar() {
                 className={cn(
                   "w-full justify-start",
                   collapsed ? "px-2" : "px-3",
-                  isActive
-                    ? "bg-primary text-primary-foreground"
-                    : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                  isActive ? "bg-blue-600 text-white" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
                 )}
               >
                 <item.icon className={cn("w-5 h-5", collapsed ? "" : "mr-3")} />
@@ -73,14 +71,14 @@ export function Sidebar() {
 
       {/* User Info */}
       {!collapsed && (
-        <div className="p-4 border-t border-sidebar-border">
+        <div className="p-4 border-t border-slate-200">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
-              <span className="text-sm font-medium text-secondary-foreground">DR</span>
+            <div className="w-8 h-8 bg-slate-200 rounded-full flex items-center justify-center">
+              <span className="text-sm font-medium text-slate-700">DR</span>
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-sidebar-foreground truncate">Dr. Roberto Silva</p>
-              <p className="text-xs text-muted-foreground truncate">Cardiologista</p>
+              <p className="text-sm font-medium text-slate-900 truncate">Dr. Roberto Silva</p>
+              <p className="text-xs text-slate-500 truncate">Cardiologista</p>
             </div>
           </div>
         </div>
